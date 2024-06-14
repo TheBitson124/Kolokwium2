@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Kolokwium2.Models_DTOs;
 [Table("character_titles")]
-[PrimaryKey(nameof(CharacterID),nameof(CharacterID))]
+[PrimaryKey(nameof(CharacterID),nameof(TitleId))]
 public class Character_title
 {
     [Required]

@@ -8,14 +8,13 @@ namespace Kolokwium2.Models_DTOs;
 public class Backpack
 
 {
-    [Required]
-    public int  CharacterId { get; set; }
-    [Required]
+    public int CharacterId { get; set; }
     public int  ItemId { get; set; }
     [Required]
     public int  Amount { get; set; }
-    [ForeignKey(nameof(CharacterId))] public Character CharacterNavigation { get; set; }
-    [ForeignKey(nameof(ItemId))] public Item ItemNavigation { get; set; }
-    
+
+    [ForeignKey(nameof(CharacterId))] public Character CharacterNavigation { get; set; } = null;
+    [ForeignKey(nameof(ItemId))] public Item ItemNavigation { get; set; } = null;
+
 
 }

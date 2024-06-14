@@ -3,21 +3,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Kolokwium2.Data;
 
-public class EntityFrameworkContext : DbContext
+public class CharacterContext : DbContext
 {
-    protected EntityFrameworkContext()
+    public CharacterContext()
     {
     }
 
-    protected EntityFrameworkContext(DbContextOptions options) : base(options)
+    public CharacterContext(DbContextOptions options) : base(options)
     {
     }
-
-    public virtual DbSet<Item> Items{ get; set; }
-    public virtual DbSet<Backpack> Backpacks{ get; set; }
-    public virtual DbSet<Character> Characters{ get; set; }
-    public virtual DbSet<Character_title>CharacterTitles{ get; set; }
-    public virtual DbSet<Title> Titles{ get; set; }
+    
+    public virtual DbSet<Item> Items{ get; set; } = null!;
+    public virtual DbSet<Backpack> Backpacks{ get; set; } = null!;
+    public virtual DbSet<Character> Characters{ get; set; } = null!;
+    public virtual DbSet<Character_title> CharacterTitles{ get; set; } = null!;
+    public virtual DbSet<Title> Titles{ get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -40,7 +40,7 @@ public class EntityFrameworkContext : DbContext
             new Title(){id = 2,Name = "Wojownik"},
             new Title(){id = 3,Name = "Morderca Goblinów"}
         );
-        modelBuilder.Entity<Title>().HasData(
+        modelBuilder.Entity<Character_title>().HasData(
             new Character_title(){CharacterID = 1,TitleId = 1,AcquiredAt = new DateTime(2024,6,14)},
             new Character_title(){CharacterID = 2,TitleId = 3,AcquiredAt = new DateTime(2024,1,1)}
         );
