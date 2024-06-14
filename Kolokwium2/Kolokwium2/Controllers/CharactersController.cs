@@ -37,6 +37,10 @@ public class CharactersController :ControllerBase
                 return NotFound($"Item with id : {itemId} not found");
             }
         }
+        if (!await _Service.DoesCharacterExist(characterId))
+        {
+            return NotFound($"Character with id: {characterId} not found");
+        }
         if (!await _Service.DoesCharacterHasEnoughFreeWeight(characterId, itemsId))
         {
             return NotFound($"Character with id: {characterId} doesnt have enough free room");
